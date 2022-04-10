@@ -1,0 +1,62 @@
+---
+title: "Inclass Assignment 1:Daily Shelter Overnight Occupancy in Feb,2022"
+author: "Group 4- Health Informatics Group"
+date: "`r Sys.Date()`"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+# Loading data and inserting variable
+```{r}
+DS <- read.csv(file.choose())
+```
+
+# Load tidyvese
+```{r}
+library(tidyverse)
+```
+
+# Arithmetic operation between 2 numerical variables  
+
+**(NA Signifies that the shelter is room based and not bed based)**
+```{r}
+totalbeds= DS$OCCUPIED_BEDS + DS$UNOCCUPIED_BEDS
+totalbeds
+
+```
+
+# Logical operator Element-wise logical OR 
+
+**See if Total beds calculated are equal to the capacity (NA Signifies that the shelter is room based and not bed based)**
+```{r}
+totalbeds|DS$CAPACITY_ACTUAL_BED
+```
+
+# Create a new variable
+```{r}
+VAR12<- 89
+VAR12
+```
+
+# Convert numerical variable into character
+```{r}
+typeof(DS$UNAVAILABLE_BEDS)
+UB <- (DS$UNAVAILABLE_BEDS)
+as.character(UB)
+```
+
+# Display today's date and store it in a variable
+```{r}
+date <- Sys.Date()
+date
+```
+
+# Print the internal datasets available in R and make one into a variable 
+```{r}
+ls("package:datasets")
+DS2 <- BOD
+DS2
+```
